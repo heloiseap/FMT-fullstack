@@ -21,7 +21,6 @@ function calcular(){
             c = a/b
             break
     }
-    console.log(resultado)
     document.querySelector("#resultado").value = c
     
 }
