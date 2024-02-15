@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculadora</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+  
+<body class="cont">
+    <header>
+        <h1>calculadora</h1>
+        <h2>exercício fmt</h2>
+    </header>  
+
+    <main>
+        <label for="v1">valor 1</label>
+        <input type="number" id="v1">
+        <label for="v2">valor 2</label>
+        <input type="number" id="v2">
+        
+        <label for="operacao">Selecione a operação:</label>
+
+        <select name="operacao" id="operacao">
+          <option value="soma">Soma</option>
+          <option value="subtracao">Subtração</option>
+          <option value="multipliacacao">Multiplicação</option>
+          <option value="divisao">Divisão</option>
+        </select>
+
+        <button id="enviar" onclick="calcular">Calcular!</button>
+
+        <label for="resultado">resultado</label>
+        <input type="text" id="resultado" readonly>
+
+    </main>
+
+</body>
+</html>
