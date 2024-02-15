@@ -1,32 +1,27 @@
 function calcular(){
 
-    let a = document.getElementById("n1")
-    let b = document.getElementById("n2")
+    let a = Number(document.querySelector("#v1").value)
+    let b = Number(document.querySelector("#v2").value)
     let operacao = document.getElementById("operacao").value
-    
+
     switch (operacao) {
-        case soma:
-            return a+b
-        case subtracao:
-            return a-b
+        case "soma":
+            c = a+b
+            break
+        case "subtracao":
+            c = a-b
+            break
+        case "multiplicacao":
+            c = a*b
+            break
+        case "divisao":
+            if (b==0){
+                c = "NaN"
+            }
+            c = a/b
+            break
     }
-    function soma(a,b) {
-        return a+b
-    }
-
-    function subtracao(a,b) {
-        return a-b
-    }
-
-    function multiplicacao(a,b) {
-        return a*b
-    }
-
-    function divisao(a,b) {
-        if (b==0) {
-            return NaN
-        }
-        return a/b
-    }
+    console.log(resultado)
+    document.querySelector("#resultado").value = c
+    
 }
-
