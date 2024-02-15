@@ -25,3 +25,9 @@ function validaDataNasci() {
 function filhos() {
 
 }
+form.addEventListener(
+    "submit",
+    function (event) {
+        event.preventDefault()
+    }
+)
