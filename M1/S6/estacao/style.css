@@ -4,3 +4,7 @@ body {
     align-items: center;
    
 }
+#imagem {
+    width: 100%;
+    height: auto;
+  }
