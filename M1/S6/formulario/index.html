@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulaário</title>
+    <title>Formulário</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
 </head>
@@ -13,29 +13,28 @@
     </header>
     
     <main>
-        <form action="">
+        <form id="formulario">
             <label for="nome">Nome completo</label>
-            <input type="text" id="nome" required onblur="validaNome()">
+            <input type="text" id="nome" required minlength="2">
 
             <label for="email">Email válido</label>
-            <input type="email" id="email" required onblur="validaEmail()">
+            <input type="email" id="email" placeholder="blabla@email.com" required onblur="validaEmail()">
 
-            <label for="senha">Senha</label>
+            <label for="senha">Senha<br> <small>mínimo de 8 caracteres, contendo pelo menos 1 letra maiúscula, 1 minúscula, 1 número</small></label>
+            
             <input type="password" minlength="8" id="senha" required onblur="validaSenha()"> 
-            <!-- required 1 letra maiuscula, 1 minuscula, 1 numero -->
-            <label for="senhaVal">Repita a senha:</label>
-            <input type="password" id="senhaVal" required onblur="validaSenhaVal()">
-            <!--validar com senha  -->
+
+            <label for="senhaRepetida">Repita a senha:</label>
+            <input type="password" id="senhaRepetida" required onblur="validaSenhaRepetida()">
 
             <label for="dataNascimento">Data de nascimento:</label>
-            <input type="date" id="dataNascimento" required onblur="validaDataNasci()">
+            <input type="date" id="dataNascimento" required">
 
             <label for="filhos">Possui filhos? Cheque para "sim"</label>
-            <input type="checkbox" id="filhos" required onblur="filhos()">
+            <input type="checkbox" id="filhos" required onchange="temFilhos()">
 
             <label for="numFilhos">Quantos?</label>
             <input type="number" id="numFilhos" disabled>
-            <!-- linkar os 2 -->
             
             <input type="submit">
         </form>
