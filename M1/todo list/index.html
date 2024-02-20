@@ -9,17 +9,17 @@
 <body>
     <header>
         <h1>TO DO LIST</h1>
-        <h2>lista de afazeres</h2>
+        <h3>lista de afazeres</h3>
     </header>
     
     <main>
-        <div>
-            <label form="add-item">Adicionar tarefa:</label>
-            <input type="text" name="add-item"><br> 
-            <button type="button">Adicionar</button>
+        <div id="secao-add">
+            <label for="add-item">Adicionar nova tarefa</label>
+            <input type="text" id="add-item" name="add-item"><br> 
+            <button type="button">Adicionar!</button>
         </div>
 
-        <div>
+        <div id="todo-list">
             <ul>
                     
                     <li><input type="checkbox" id="item1"/>Tarefa 1 <button>x</button></li>
