@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To Do List</title>
+    <script src="script.js" defer></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,19 +15,33 @@
     
     <main>
         <div id="secao-add">
-            <label for="add-item">Adicionar nova tarefa</label>
-            <input type="text" id="add-item" name="add-item"><br> 
+            <input type="text" id="add-item" name="add-item" placeholder="Nova tarefa..."><br> 
             <button type="button">Adicionar!</button>
         </div>
-
         <div id="todo-list">
             <ul>
-                    
-                    <li><input type="checkbox" id="item1"/>Tarefa 1 <button>x</button></li>
-                    <li><input type="checkbox" id="item2"/>Tarefa 2 <button>x</button></li>
-                    <li><input type="checkbox" id="item3"/>Tarefa 3 <button>x</button></li>
-                    <li><input type="checkbox" id="item4"/>Tarefa 4 <button>x</button></li>
-            </ul>
+                    <div id="item1Area">
+                        <li>
+                            <input type="checkbox" id="item1"/>
+                            <label for="item1">Estudar HTML e CSS</label>
+                            <button>x</button>
+                        </li>
+                    </div>
+                    <div id="item2Area">
+                        <li>
+                            <input type="checkbox" id="item2"/>
+                            <label for="item2">Estudar JavaScript</label>
+                            <button>x</button>
+                        </li>
+                    </div>
+                    <div id="item3Area">
+                        <li>
+                            <input type="checkbox" id="item3"/>
+                            <label for="item3">Fazer exercícios</label>
+                            <button>x</button>
+                        </li>
+                    </div>
+                </ul>
         </div>
 
     </main>

@@ -1,39 +1,42 @@
 body {
+  font-family: Arial, Helvetica, sans-serif;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
+
 }
 header {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: gray;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2vw;
 }
 
 #secao-add {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  align-items: stretch;
 }
 
-#secao-add label{
-  padding-bottom: 1vw;
-}
 
 #secao-add button{
-  margin-top: 0%;
-  padding-top: 0%;
-  width: 30vw ;
-  height: 4vw;
   border: none;
   color: white;
   text-align: center;
   background-color: #04AA6D;
-
 }
 
 #secao-add input{
-  width: 30vw;
-  padding-bottom: 1vw;
+  padding: .5vw;
+  border: none;
+  background-color: #04aa6d8c;
+  color: white;
 }
 
 
@@ -43,7 +46,7 @@ ul {
   }
 
 #todo-list {
-  margin-top: 5vw;
+  margin: 3vw;
 }
 
 #todo-list button{
