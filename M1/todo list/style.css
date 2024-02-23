@@ -80,3 +80,6 @@ ul {
   padding: 0;
 } */
 
+/* .check-task:checked + .todo-item-text {
+  text-decoration: line-through;
+} */
