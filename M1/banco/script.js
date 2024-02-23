@@ -4,21 +4,61 @@ let saldoConta = document.querySelector("#saldo-conta")
 
 class Cliente {
 
-    #nome
-    #conta
-    #saldo
+    #nomeCliente
+    #numeroConta //linkar a conta
+    #saldoConta //linkar a conta
 
     constructor(nome,conta,saldo) {
-        this.#nome = nome
-        this.#conta = conta
-        this.#saldo = saldo
+        this.#nomeCliente = nome
+        this.#numeroConta = conta
+        this.#saldoConta = saldo
     }
 
-    get nome() {
-        return this.nome
+    get nomeCliente() {
+        return this.#nomeCliente
     }
-    // get conta() {
-    //     this.
-    // }
+    set nomeCliente(nomeCliente) {
+        this.#nomeCliente = nomeCliente
+    }
+
+    get numeroConta() {
+        return this.#numeroConta
+    }
+
+    set numeroConta(numeroConta) {
+        if (numeroContaCadastrado.includes(numeroConta)) {
+            return alert("Esse número não está disponível")
+        }
+        else {
+            this.#numeroConta = numeroConta
+        }
+    }
+
+    get saldoConta() {
+        return this.#saldoConta
+    }
+
+    set saldoConta(saldoConta) {
+        this.#saldoConta += saldoConta
+      
+    }
 
 }
+
+
+class Conta{ 
+    #numeroConta
+    #saldoConta
+    #ativo
+
+    constructor(numeroConta,saldoConta,ativo){
+        this.#numeroConta = numeroConta
+        this.#saldoConta = saldoConta
+        this.#ativo = ativo
+    }
+
+
+}
+
+//todo salvar contas no array
+let numeroContaCadastrado = []
