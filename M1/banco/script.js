@@ -1,64 +1,44 @@
-let nomeCliente = document.querySelector("#nome-cliente")
-let numeroConta = document.querySelector("#numero-conta")
-let saldoConta = document.querySelector("#saldo-conta")
+import {Cliente,Conta} from "./classes.js"
 
-class Cliente {
+const conta1 = new Conta(1234,40,true,"Joao")
 
-    #nomeCliente
-    #numeroConta //linkar a conta
-    #saldoConta //linkar a conta
+const arrayClientes = []
+const arrayContas = [conta1]
+const btnCadastro = document.querySelector("#btn-cadastro")
+btnCadastro.addEventListener("click",cadastrarCliente)
+    
+function cadastrarCliente() {
+    const nomeCliente = document.querySelector("#nome-cliente").value
+    const numeroConta = document.querySelector("#numero-conta").value
+    const saldoConta = document.querySelector("#saldo-conta").value
 
-    constructor(nome,conta,saldo) {
-        this.#nomeCliente = nome
-        this.#numeroConta = conta
-        this.#saldoConta = saldo
+    const conta = new Conta(numeroConta,saldoConta,true,nomeCliente) 
+    const cliente = new Cliente(nomeCliente,numeroConta,saldoConta)
+    arrayClientes.push(cliente)
+    arrayContas.push(conta)
+}
+
+const btnTransacao = document.querySelector("#btn-transacao")
+btnTransacao.addEventListener("click",transacaoEscolhida)
+
+function transacaoEscolhida() {
+
+    const acaoEscolhida = document.querySelector("#acao-escolhida").value
+    const numeroConta = document.querySelector("#numero-conta-transacao")
+    const contaTransacao = arrayContas.find(item => item.numeroConta == numeroConta)
+
+
+    switch (acaoEscolhida) {
+        case "saldo":
+
+
+        case "deposito":
+        
+        case "saque":
+
     }
-
-    get nomeCliente() {
-        return this.#nomeCliente
-    }
-    set nomeCliente(nomeCliente) {
-        this.#nomeCliente = nomeCliente
-    }
-
-    get numeroConta() {
-        return this.#numeroConta
-    }
-
-    set numeroConta(numeroConta) {
-        if (numeroContaCadastrado.includes(numeroConta)) {
-            return alert("Esse número não está disponível")
-        }
-        else {
-            this.#numeroConta = numeroConta
-        }
-    }
-
-    get saldoConta() {
-        return this.#saldoConta
-    }
-
-    set saldoConta(saldoConta) {
-        this.#saldoConta += saldoConta
-      
-    }
-
 }
 
 
-class Conta{ 
-    #numeroConta
-    #saldoConta
-    #ativo
-
-    constructor(numeroConta,saldoConta,ativo){
-        this.#numeroConta = numeroConta
-        this.#saldoConta = saldoConta
-        this.#ativo = ativo
-    }
 
 
-}
-
-//todo salvar contas no array
-let numeroContaCadastrado = []
