@@ -12,6 +12,28 @@
 // })
 let listaTarefas = ["Estudar HTML e CSS","Estudar JS","Fazer exercícios"]
 
+document.onload = mostrarListaTarefas()
+
+function mostrarListaTarefas() {
+
+    listaTarefas.forEach(tarefa => {
+
+        let btnCheck = document.createElement("input")
+        btnCheck.type = "checkbox"
+
+        let lblTarefa = document.createElement("label")
+        // lblTarefa.for = "btn-check"
+        
+        document.body.appendChild(lblTarefa)
+        document.body.appendChild(btnCheck)
+        
+    } )
+    
+
+}
+
+
+
 let componentes = document.querySelectorAll("div .items input")
 componentes.forEach(elemento => elemento.addEventListener("change", function(){
     let label =document.querySelector("label[for=" + elemento.id + "]")
