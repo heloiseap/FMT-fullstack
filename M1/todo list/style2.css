@@ -3,7 +3,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: #457B9D !important;
+    background-color: #101D42 !important;
 
   
 }
@@ -11,9 +11,10 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #1D3557;
+    background-color: #89D2DC;
     margin-bottom: 2vw;
-    color: #F1FAEE;
+    color: #0D1317;
+    border-radius: 25px;
 }
   
 main {
@@ -26,21 +27,26 @@ main {
 
 #secao-add {
     display: flex;
-    align-items: stretch;
     margin-bottom: 2vw;
-    
 }
   
 #secao-add button{
     border: none;
-    color: #A8DADC;
-    background-color: #E63946;
+    color: #0D1317;
+    background-color: #6564DB;
+    border-radius: 0px 5px 5px 0px;
+    margin: 2vw 2vw 2vw 0vw;
+    font-size: medium;
 }
   
 #secao-add input{
     border: none;
-    background-color: #A8DADC;
-    color: #1D3557;
+    background-color: #89D2DC;
+    color: #0D1317;
+    border-radius: 5px 0px 0px 5px;
+    margin: 2vw 0vw 2vw 2vw;
+    font-size: medium;
+
 }
 
 #todo-list {
@@ -49,27 +55,32 @@ main {
     justify-content: space-around;
     align-items: left;
     width: 40vw;
-    background-color: #E63946;
+    background-color: #6564DB;
+    border-radius: 10px;
+
 }
 
 #todo-list div{
     display: flex;
     justify-content: space-between;
-    background-color: #1D3557;
+    background-color: #101D42;
     margin: 1vw;
-    color:#F1FAEE;
+    color:#89D2DC;
+    border-radius: 5px;
+    font-size: medium;
 
 }
 
 #todo-list input{
-    margin: .5vw;
+    margin: 1.5vw;
 }
 
 
 #todo-list button{
     border: none;
-    background-color: #1D3557;
-    color: #F1FAEE;
+    background-color: #101D42;
+    color: #89D2DC;
+    border-radius: 5px;
 }
 
 
