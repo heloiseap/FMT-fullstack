@@ -10,33 +10,44 @@
 //     }
 
 // })
-let listaTarefas = ["Estudar HTML e CSS","Estudar JS","Fazer exercícios"]
-
-document.onload = mostrarListaTarefas()
+let listaTarefas = ["Estudar HTML e CSS", "Estudar JS", "Fazer exercícios"]
+window.onload = mostrarListaTarefas
 
 function mostrarListaTarefas() {
-
     listaTarefas.forEach(tarefa => {
+        let idTarefa = listaTarefas.indexOf(tarefa)
 
+        let divTarefa = document.createElement("div")
+        divTarefa.classList.add("items")
+        
         let btnCheck = document.createElement("input")
         btnCheck.type = "checkbox"
-
+        btnCheck.id = "check-" + idTarefa
+        btnCheck.classList.add("item")
+         
         let lblTarefa = document.createElement("label")
-        // lblTarefa.for = "btn-check"
-        
-        document.body.appendChild(lblTarefa)
-        document.body.appendChild(btnCheck)
-        
-    } )
-    
+        lblTarefa.htmlFor = "check-" + idTarefa
+        lblTarefa.innerHTML = tarefa
+        lblTarefa.classList.add("item")
 
+        btnExcluir = document.createElement("button")
+        btnExcluir.innerHTML = "<i class='bi bi-trash'></i>"        
+
+
+        document.querySelector("#todo-list").appendChild(divTarefa)
+        divTarefa.appendChild(btnCheck)
+        divTarefa.appendChild(lblTarefa)
+        divTarefa.appendChild(btnExcluir)
+    })
 }
 
 
 
+
+
 let componentes = document.querySelectorAll("div .items input")
-componentes.forEach(elemento => elemento.addEventListener("change", function(){
-    let label =document.querySelector("label[for=" + elemento.id + "]")
+componentes.forEach(elemento => elemento.addEventListener("change", function () {
+    let label = document.querySelector("label[for=" + elemento.id + "]")
 
     if (elemento.checked) {
         label.style.textDecorationLine = "line-through"
@@ -47,17 +58,21 @@ componentes.forEach(elemento => elemento.addEventListener("change", function(){
 }))
 
 let btnAddTarefa = document.querySelector("#btn-add")
-btnAddTarefa.addEventListener("click", function() {
+btnAddTarefa.addEventListener("click", function () {
     let novaTarefa = document.querySelector("#add-item").value
-    if (novaTarefa!="") {
+    if (novaTarefa != "") {
         if (!listaTarefas.includes(novaTarefa)) {
             listaTarefas.push(novaTarefa)
+            console.log(listaTarefas)
+            let inputTarefa = document.querySelector("#add-item")
+            inputTarefa.value = ""
+
         }
         else {
             alert("Tarefa já adicionada") //fazer balaozinho
         }
     }
-    else{
+    else {
         alert("Campo vazio")
     }
 })
