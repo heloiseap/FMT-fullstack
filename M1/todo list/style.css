@@ -72,11 +72,11 @@ main {
 }
 
 #todo-list input{
-    margin: 1.5vw;
+    margin: 1vw;
 }
 
 #todo-list label{
-    margin-top: 1vw;
+    margin: 1vw;
 }
 
 
@@ -85,6 +85,7 @@ main {
     background-color: #101D42;
     color: #89D2DC;
     border-radius: 5px;
+    margin: 1vw;
 }
 
 
