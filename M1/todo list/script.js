@@ -1,4 +1,4 @@
-let listaTarefas = ["Estudar HTML e CSS", "Estudar JS", "Fazer exercícios"]
+let listaTarefas = [["Estudar HTML e CSS",false], ["Estudar JS",true], ["Fazer exercícios",false]]
 window.onload = mostrarListaTarefas
 
 function mostrarListaTarefas() {
@@ -15,17 +15,26 @@ function mostrarListaTarefas() {
         btnCheck.type = "checkbox"
         btnCheck.id = "check-" + idTarefa
         btnCheck.classList.add("item")
+        
+        btnCheck.addEventListener("change", function () {
+            if (btnCheck.checked) {
+                lblTarefa.style.textDecorationLine = "line-through";
+                tarefa[1] = true;
+            } else {
+                lblTarefa.style.textDecorationLine = "none";
+                tarefa[1] = false;
 
+            }
+        })
 
         const lblTarefa = document.createElement("label")
         lblTarefa.htmlFor = "check-" + idTarefa
-        lblTarefa.innerHTML = tarefa
+        lblTarefa.innerHTML = tarefa[0]
         lblTarefa.classList.add("item")
 
         btnExcluir = document.createElement("button")
         btnExcluir.id = "btnCheck-" + idTarefa
         btnExcluir.innerHTML = "<i class='bi bi-trash'></i>"
-
 
         document.querySelector("#todo-list").appendChild(divTarefa)
         divTarefa.appendChild(btnCheck)
@@ -33,19 +42,22 @@ function mostrarListaTarefas() {
         divTarefa.appendChild(btnExcluir)
     }
     )
-    
 }
-const tarefas = document.querySelectorAll(".item") 
-tarefas.forEach(elemento => elemento.addEventListener("change", function () {
-    let label = document.querySelector("label[for=" + elemento.id + "]")
 
-    if (elemento.checked) {
-        label.style.textDecorationLine = "line-through"
-    }
-    else {
-        label.style.textDecorationLine = "none"
-    }
-}))
+//marcar tarefa
+
+
+// const tarefas = document.querySelectorAll(".item") 
+// tarefas.forEach(elemento => elemento.addEventListener("change", function () {
+//     let label = document.querySelector("label[for=" + elemento.id + "]")
+
+//     if (elemento.checked) {
+//         label.style.textDecorationLine = "line-through"
+//     }
+//     else {
+//         label.style.textDecorationLine = "none"
+//     }
+// }))
 
 //adicionar tarefas
 let btnAddTarefa = document.querySelector("#btn-add")
@@ -60,12 +72,10 @@ btnAddTarefa.addEventListener("click", function () {
             inputTarefa.value = ""
             mostrarListaTarefas()
 
-        }
-        else {
+        } else {
             alert("Tarefa já adicionada") //fazer balaozinho
         }
-    }
-    else {
+    } else {
         alert("Campo vazio")
     }
 })
