@@ -1,1 +1,14 @@
 <p>home works!</p>
+<!--double binding no texto pesquisa
+    pega o valor com o [(ngModel)] -->
+<div>
+    <input type="text" [(ngModel)]="textoPesquisa">
+    <button (click)="pesquisar()">Pesquisar</button>
+</div>
+
+
+
+<!-- para aparecer produto: botar listaProdutos -->
+<div *ngFor="let produto of resultadoPesquisa"> 
+    <app-card [produto]="produto"></app-card> 
+</div>

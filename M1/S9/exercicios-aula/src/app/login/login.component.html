@@ -1,0 +1,28 @@
+<div>
+    <form #loginForm="ngForm">
+        <div>
+            <label for="nomeUsuario">Nome do usuário</label>
+            <input 
+                type="text" 
+                name="nomeUsuario" 
+                [(ngModel)]="login.nomeUsuario"
+                #nomeUsuario="ngModel" />
+        </div>
+
+        <div>
+            <label for="senhaUsuario">Senha</label>
+            <input 
+                type="password" 
+                name="senhaUsuario" 
+                [(ngModel)]="login.senhaUsuario"
+                #senhaUsuario="ngModel" />
+            
+        </div>
+
+        <div class="form-btn">
+            <button type="submit">Entrar</button>
+            <button type="button" (click)="limparForm()">Limpar</button>
+        </div>
+
+    </form>
+</div>
