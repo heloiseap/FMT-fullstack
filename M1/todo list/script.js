@@ -33,6 +33,8 @@ function mostrarListaTarefas() {
         btnExcluir.innerHTML = "<i class='bi bi-trash'></i>"
 
         btnExcluir.addEventListener("click", function () {
+            let confirma = window.confirm("Deseja excluir a tarefa selecionada?")
+            if (confirma){excluirTarefa(idTarefa)}
         })
 
         document.querySelector("#todo-list").appendChild(divTarefa)
@@ -40,6 +42,9 @@ function mostrarListaTarefas() {
         divTarefa.appendChild(lblTarefa)
         divTarefa.appendChild(btnExcluir)
     })
+
+    contagemTarefas()
+
 }
 
 //evento de apertar na checkbox
@@ -50,32 +55,19 @@ function checkTarefa(idTarefa) {
     if (tarefa[1] == false) {
         tarefa[1] = true
         lblTarefa.style.textDecoration = "line-through"
-        console.log(tarefa[1])
     } else {
         tarefa[1] = false
         lblTarefa.style.textDecoration = "none"
-        console.log(tarefa[1])
 
     }
 }
 
 //excluir
 function excluirTarefa(idtarefa) {
-    // listaTarefas.filter(tarefa[0] !==)
+    listaTarefas.splice(idtarefa,1)
+    mostrarListaTarefas()
 
 }
-
-//  let tarefas = document.querySelectorAll(".item") 
-// tarefas.forEach(elemento => elemento.addEventListener("change", function () {
-//     let label = document.querySelector("label[for=" + elemento.id + "]")
-
-//     if (elemento.checked) {
-//         label.style.textDecorationLine = "line-through"
-//     }
-//     else {
-//         label.style.textDecorationLine = "none"
-//     }
-// }))
 
 //adicionar tarefas
 let btnAddTarefa = document.querySelector("#btn-add")
@@ -96,3 +88,13 @@ btnAddTarefa.addEventListener("click", function () {
         alert("Campo vazio")
     }
 })
+
+//numero de tarefas
+function contagemTarefas() {
+    let divContagem = document.querySelector("#quantidade-tarefas")
+    divContagem.innerHTML = ""
+    let textoContagem = document.createElement("span")
+    textoContagem.innerHTML ="Quantidade de tarefas: " + listaTarefas.length
+    divContagem.appendChild(textoContagem)
+
+}
