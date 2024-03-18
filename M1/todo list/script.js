@@ -1,4 +1,4 @@
-let listaTarefas = [["Estudar HTML e CSS",false], ["Estudar JS",true], ["Fazer exercícios",false]]
+let listaTarefas = [["Estudar HTML e CSS", false], ["Estudar JS", true], ["Fazer exercícios", false]]
 window.onload = mostrarListaTarefas
 
 function mostrarListaTarefas() {
@@ -6,48 +6,66 @@ function mostrarListaTarefas() {
     divToDoList.innerHTML = ""
 
     listaTarefas.forEach(tarefa => {
-        const idTarefa = listaTarefas.indexOf(tarefa)
+        let idTarefa = listaTarefas.indexOf(tarefa)
 
-        const divTarefa = document.createElement("div")
+        let divTarefa = document.createElement("div")
         divTarefa.classList.add("items")
 
-        const btnCheck = document.createElement("input")
+        let btnCheck = document.createElement("input")
         btnCheck.type = "checkbox"
         btnCheck.id = "check-" + idTarefa
+        btnCheck.checked = tarefa[1]
         btnCheck.classList.add("item")
-        
-        btnCheck.addEventListener("change", function () {
-            if (btnCheck.checked) {
-                lblTarefa.style.textDecorationLine = "line-through";
-                tarefa[1] = true;
-            } else {
-                lblTarefa.style.textDecorationLine = "none";
-                tarefa[1] = false;
 
-            }
+        btnCheck.addEventListener("change", function () {
+            checkTarefa(idTarefa)
         })
 
-        const lblTarefa = document.createElement("label")
+        let lblTarefa = document.createElement("label")
         lblTarefa.htmlFor = "check-" + idTarefa
         lblTarefa.innerHTML = tarefa[0]
         lblTarefa.classList.add("item")
+        lblTarefa.id = "lbl-" + idTarefa
+        lblTarefa.style.textDecoration = (tarefa[1] == true ? "line-through" : "none")
 
         btnExcluir = document.createElement("button")
         btnExcluir.id = "btnCheck-" + idTarefa
         btnExcluir.innerHTML = "<i class='bi bi-trash'></i>"
 
+        btnExcluir.addEventListener("click", function () {
+        })
+
         document.querySelector("#todo-list").appendChild(divTarefa)
         divTarefa.appendChild(btnCheck)
         divTarefa.appendChild(lblTarefa)
         divTarefa.appendChild(btnExcluir)
-    }
-    )
+    })
 }
 
-//marcar tarefa
+//evento de apertar na checkbox
+function checkTarefa(idTarefa) {
+    let tarefa = listaTarefas[idTarefa]
+    let lblTarefa = document.querySelector("#lbl-"+idTarefa)
 
+    if (tarefa[1] == false) {
+        tarefa[1] = true
+        lblTarefa.style.textDecoration = "line-through"
+        console.log(tarefa[1])
+    } else {
+        tarefa[1] = false
+        lblTarefa.style.textDecoration = "none"
+        console.log(tarefa[1])
 
-// const tarefas = document.querySelectorAll(".item") 
+    }
+}
+
+//excluir
+function excluirTarefa(idtarefa) {
+    // listaTarefas.filter(tarefa[0] !==)
+
+}
+
+//  let tarefas = document.querySelectorAll(".item") 
 // tarefas.forEach(elemento => elemento.addEventListener("change", function () {
 //     let label = document.querySelector("label[for=" + elemento.id + "]")
 
@@ -66,8 +84,7 @@ btnAddTarefa.addEventListener("click", function () {
     let novaTarefa = document.querySelector("#add-item").value
     if (novaTarefa != "") {
         if (!listaTarefas.includes(novaTarefa)) {
-            listaTarefas.push(novaTarefa)
-            console.log(listaTarefas)
+            listaTarefas.push([novaTarefa, false])
             let inputTarefa = document.querySelector("#add-item")
             inputTarefa.value = ""
             mostrarListaTarefas()
