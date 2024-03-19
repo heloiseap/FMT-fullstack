@@ -1,4 +1,11 @@
-let listaTarefas = [["Estudar HTML e CSS", false], ["Estudar JS", true], ["Fazer exercícios", false]]
+import tarefas from "./tarefas.json" assert {type: 'json'}
+let listaTarefas = tarefas.tarefas
+
+// let listaTarefas = [["Estudar HTML e CSS", false], ["Estudar JS", true], ["Fazer exercícios", false]]
+// console.log(listaTarefas)
+// listaTarefas.forEach(tarefa=>{
+//     console.log(tarefa.titulo)
+// })
 window.onload = mostrarListaTarefas
 
 function mostrarListaTarefas() {
@@ -14,7 +21,7 @@ function mostrarListaTarefas() {
         let btnCheck = document.createElement("input")
         btnCheck.type = "checkbox"
         btnCheck.id = "check-" + idTarefa
-        btnCheck.checked = tarefa[1]
+        btnCheck.checked = tarefa.concluido
         btnCheck.classList.add("item")
 
         btnCheck.addEventListener("change", function () {
@@ -23,12 +30,12 @@ function mostrarListaTarefas() {
 
         let lblTarefa = document.createElement("label")
         lblTarefa.htmlFor = "check-" + idTarefa
-        lblTarefa.innerHTML = tarefa[0]
+        lblTarefa.innerHTML = tarefa.titulo
         lblTarefa.classList.add("item")
         lblTarefa.id = "lbl-" + idTarefa
         lblTarefa.style.textDecoration = (tarefa[1] == true ? "line-through" : "none")
 
-        btnExcluir = document.createElement("button")
+        let btnExcluir = document.createElement("button")
         btnExcluir.id = "btnCheck-" + idTarefa
         btnExcluir.innerHTML = "<i class='bi bi-trash'></i>"
 
@@ -58,7 +65,6 @@ function checkTarefa(idTarefa) {
     } else {
         tarefa[1] = false
         lblTarefa.style.textDecoration = "none"
-
     }
 }
 
@@ -66,27 +72,53 @@ function checkTarefa(idTarefa) {
 function excluirTarefa(idtarefa) {
     listaTarefas.splice(idtarefa,1)
     mostrarListaTarefas()
-
 }
 
 //adicionar tarefas
-let btnAddTarefa = document.querySelector("#btn-add")
-btnAddTarefa.addEventListener("click", function () {
 
-    let novaTarefa = document.querySelector("#add-item").value
-    if (novaTarefa != "") {
-        if (!listaTarefas.includes(novaTarefa)) {
-            listaTarefas.push([novaTarefa, false])
+function adicionarTarefa(novaTarefa){
+    if (!!novaTarefa) {
+        let tarefa = {
+            titulo: novaTarefa,
+            concluido: false
+        }
+
+        console.log(listaTarefas.filter(tarefa=> tarefa.titulo == novaTarefa))
+        //n esta reconhecendo quando ja foi add
+        if (!listaTarefas.includes(tarefa)) {
+            console.log(tarefa)
+            console.log(listaTarefas)
+            listaTarefas.push(tarefa)
+            //limpa a tela e mostra lista atualizada:
             let inputTarefa = document.querySelector("#add-item")
             inputTarefa.value = ""
             mostrarListaTarefas()
-
         } else {
             alert("Tarefa já adicionada") //fazer balaozinho
         }
     } else {
         alert("Campo vazio")
-    }
+    }   
+}
+
+
+let btnAddTarefa = document.querySelector("#btn-add")
+btnAddTarefa.addEventListener("click", function () {
+    let novaTarefa = document.querySelector("#add-item").value
+    adicionarTarefa(novaTarefa)
+    // if (!!novaTarefa) {
+    //     if (!listaTarefas.includes(novaTarefa)) {
+    //         listaTarefas.push([novaTarefa, false])
+    //         let inputTarefa = document.querySelector("#add-item")
+    //         inputTarefa.value = ""
+    //         mostrarListaTarefas()
+
+    //     } else {
+    //         alert("Tarefa já adicionada") //fazer balaozinho
+    //     }
+    // } else {
+    //     alert("Campo vazio")
+    // }
 })
 
 //numero de tarefas

@@ -1,0 +1,22 @@
+{
+    "tarefas": [
+        {
+            "titulo": "Estudar HTML e CSS",
+            "concluido": false    
+        },
+        {
+            "titulo": "Estudar JS",
+            "concluido": false
+        },
+        {
+            "titulo": "30 minutos aeróbico",
+            "concluido": true 
+        },
+        {
+            "titulo": "Limpar quarto",
+            "concluido": false
+        }
+    ]
+
+
+}
