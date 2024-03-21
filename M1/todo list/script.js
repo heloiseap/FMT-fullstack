@@ -1,11 +1,6 @@
 import tarefas from "./tarefas.json" assert {type: 'json'}
 let listaTarefas = tarefas.tarefas
 
-// let listaTarefas = [["Estudar HTML e CSS", false], ["Estudar JS", true], ["Fazer exercícios", false]]
-// console.log(listaTarefas)
-// listaTarefas.forEach(tarefa=>{
-//     console.log(tarefa.titulo)
-// })
 window.onload = mostrarListaTarefas
 
 function mostrarListaTarefas() {
@@ -33,7 +28,7 @@ function mostrarListaTarefas() {
         lblTarefa.innerHTML = tarefa.titulo
         lblTarefa.classList.add("item")
         lblTarefa.id = "lbl-" + idTarefa
-        lblTarefa.style.textDecoration = (tarefa[1] == true ? "line-through" : "none")
+        lblTarefa.style.textDecoration = (tarefa.concluido == true ? "line-through" : "none")
 
         let btnExcluir = document.createElement("button")
         btnExcluir.id = "btnCheck-" + idTarefa
@@ -59,11 +54,11 @@ function checkTarefa(idTarefa) {
     let tarefa = listaTarefas[idTarefa]
     let lblTarefa = document.querySelector("#lbl-"+idTarefa)
 
-    if (tarefa[1] == false) {
-        tarefa[1] = true
+    if (tarefa.concluido == false) {
+        tarefa.concluido = true
         lblTarefa.style.textDecoration = "line-through"
     } else {
-        tarefa[1] = false
+        tarefa.concluido = false
         lblTarefa.style.textDecoration = "none"
     }
 }
@@ -71,11 +66,11 @@ function checkTarefa(idTarefa) {
 //excluir
 function excluirTarefa(idtarefa) {
     listaTarefas.splice(idtarefa,1)
+    localStorage.setItem("listaTarefas",JSON.stringify(listaTarefas))
     mostrarListaTarefas()
 }
 
 //adicionar tarefas
-
 function adicionarTarefa(novaTarefa){
     if (!!novaTarefa) {
         let tarefa = {
@@ -83,12 +78,10 @@ function adicionarTarefa(novaTarefa){
             concluido: false
         }
 
-        console.log(listaTarefas.filter(tarefa=> tarefa.titulo == novaTarefa))
-        //n esta reconhecendo quando ja foi add
-        if (!listaTarefas.includes(tarefa)) {
-            console.log(tarefa)
-            console.log(listaTarefas)
+        if (listaTarefas.filter(item=>item.titulo==novaTarefa).length==0) {
+            // listaTarefas.push(tarefa)
             listaTarefas.push(tarefa)
+            localStorage.setItem("listaTarefas", JSON.stringify(listaTarefas))
             //limpa a tela e mostra lista atualizada:
             let inputTarefa = document.querySelector("#add-item")
             inputTarefa.value = ""
