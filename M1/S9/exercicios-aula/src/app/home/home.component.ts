@@ -12,15 +12,17 @@ import { FormsModule } from '@angular/forms';
 })
 
 export class HomeComponent {
-  
+  // pq os produtos tao na home em vez do card?
   listaProdutos = [
     {
-      imagem: "assets/produto.jpg",
-      descricao: "produto A"
+      imagem: "https://placehold.jp/150x150.png",
+      descricao: "produto A",
+      valor: 150
     },
     {
-      imagem: "assets/produto.jpg",
-      descricao: "produto B"
+      imagem: "https://placehold.jp/150x150.png",
+      descricao: "produto B",
+      valor: 150
     }    
   ]
 

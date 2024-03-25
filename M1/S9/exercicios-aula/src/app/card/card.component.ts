@@ -9,5 +9,5 @@ import { Component, Input } from '@angular/core';
   styleUrl: './card.component.css'
 })
 export class CardComponent {
-  @Input() produto: { imagem: string; descricao: string; } | undefined; //produto pode ser vazio tbm
+  @Input() produto: { imagem: string; descricao: string; valor: number } | undefined; //produto pode ser vazio tbm
 }
