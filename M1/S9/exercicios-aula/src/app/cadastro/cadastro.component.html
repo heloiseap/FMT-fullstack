@@ -1,1 +1,45 @@
-<p>cadastro works!</p>
+<div class="cadastro">
+  <form (ngSubmit)="cadastrar()" [formGroup]="form"> <!-- vinculo ao form group-->
+    <div>
+      <label for="nomeUsuario">Nome</label>  
+      <input
+        id="nomeUsuario"
+        type="text"
+        name="nomeUsuario"
+        formControlName="nome"
+      />
+    </div>
+
+    <div>
+        <label for="codigoUsuario">Codigo</label>  
+        <input
+          id="codigoUsuario"
+          type="text"
+          name="codigoUsuario"
+          formControlName="codigo"
+        />
+      </div>
+
+    <div>
+      <label for="senhaUsuario">Senha</label>
+      <input 
+        type="password"
+        name="senhaUsuario"
+        id="senhaUsuario"
+        formControlName="senha" />
+    </div>
+
+    <div>
+        <label for="confirmaSenha">Confime a Senha</label>
+        <input 
+          type="password"
+          name="confirmaSenha"
+          id="confirmaSenha"
+          formControlName="confirmar" />
+      </div>
+
+    <div class="form-btn">
+      <button type="submit">Cadastrar</button>
+    </div>
+  </form>
+</div>

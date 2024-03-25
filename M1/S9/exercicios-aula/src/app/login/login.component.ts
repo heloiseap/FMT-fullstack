@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule], //para usar o form template driven
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -13,19 +13,34 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   
   login = {
-    nomeUsuario: '',
+    codigoUsuario: '',
     senhaUsuario: ''
   }
 
   constructor(private router: Router) {}
 
   entrar(){
-    if (this.login.nomeUsuario && this.login.senhaUsuario) {
-      this.router.navigate(['/home']);
+    if (this.login.codigoUsuario && this.login.senhaUsuario) {
+      this.router.navigate(['/home']); //tem que estar adicionado no app.routes
     }
   }
 
   limparForm() {
-    console.log()
+    this.login.codigoUsuario = '',
+    this.login.senhaUsuario = ''
   }
 }
+//reativo:
+//export class LoginComponent implements OnInit{
+//loginForm!:FormGroup;
+//ngOnInit(){
+//  this.criarForm()
+//}
+//criarForm() {
+//  this.loginForm = new FormGroup({
+//    nome: new FormControl(''),
+//    senha: new FormControl(''),
+//  })
+//}  
+//}
+

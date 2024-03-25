@@ -1,26 +1,32 @@
 <div>
-    <form #loginForm="ngForm">
+    <!-- reactive form nos comentarios:
+            <form (ngSubmit)="onSubmit()" [formGroup]="loginForm" -->
+    <form (ngSubmit)="entrar()" #loginForm="ngForm"> 
         <div>
-            <label for="nomeUsuario">Nome do usuário</label>
+            <label for="codigoUsuario">Nome do usuário</label>
+            <!-- <input id="cdgUsuario" name="cdgUsuario" formControlName="codigoUsuario" -->
+            
             <input 
                 type="text" 
-                name="nomeUsuario" 
-                [(ngModel)]="login.nomeUsuario"
-                #nomeUsuario="ngModel" />
+                name="codigoUsuario" 
+                id="codigoUsuario"
+                [(ngModel)]="login.codigoUsuario"
+                #codigoUsuario="ngModel" />
         </div>
 
         <div>
             <label for="senhaUsuario">Senha</label>
             <input 
                 type="password" 
-                name="senhaUsuario" 
+                name="senhaUsuario"
+                id="senhaUsuario" 
                 [(ngModel)]="login.senhaUsuario"
                 #senhaUsuario="ngModel" />
             
         </div>
 
         <div class="form-btn">
-            <button type="submit">Entrar</button>
+            <button type="submit" >Entrar</button>
             <button type="button" (click)="limparForm()">Limpar</button>
         </div>
 
