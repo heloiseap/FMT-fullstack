@@ -1,1 +1,30 @@
-<p>login works!</p>
+<div>
+    <form (ngSubmit)="entrar()" #loginForm="ngForm"> 
+        <div>
+            <label for="email-user">Email</label>
+            <input 
+                type="email" 
+                name="email-user" 
+                id="email-user"
+                [(ngModel)]="login.emailUser"
+                #codigoUsuario="ngModel" />
+        </div>
+
+        <div>
+            <label for="senha-user">Senha</label>
+            <input 
+                type="password" 
+                name="senha-user"
+                id="senha-user" 
+                [(ngModel)]="login.senhaUser"
+                #senhaUsuario="ngModel" />
+        </div>
+
+        <div class="form-btn">
+            <button type="submit">Entrar</button>
+            <button type="button" (click)="esqueciSenha()">Esqueci a senha</button>
+            <button type="button" (click)="cadastrar()">Cadastro</button>
+        </div>
+
+    </form>
+</div>
