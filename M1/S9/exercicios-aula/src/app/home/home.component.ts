@@ -8,7 +8,7 @@ import { SharedModule } from '../shared/components/shared.module';
   standalone: true,
   imports: [ SharedModule, CommonModule, FormsModule ],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  styleUrl: './home.component.scss'
 })
 
 export class HomeComponent {
