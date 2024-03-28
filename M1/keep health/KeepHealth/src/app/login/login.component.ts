@@ -23,12 +23,11 @@ export class LoginComponent {
     {
       email: 'admin@email.com',
       senha: '1234',
-    },
+    }
   ]; //importar from local storage
 
   entrar() {
     localStorage.setItem('listaUsers', JSON.stringify(this.listaUsers));
-    // let listaUsers = JSON.parse(localStorage.getItem('listaUsers'));
     let usuario = this.listaUsers.filter(
       (user) => user.email === this.login.emailUser
     );

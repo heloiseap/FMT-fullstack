@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-cadastro',
@@ -10,10 +10,10 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 })
 export class CadastroComponent {
   form = new FormGroup({
-    nome: new FormControl(''),
-    codigo: new FormControl(''),
-    senha: new FormControl(''),
-    confirmar: new FormControl('')
+    nome: new FormControl('',[Validators.minLength(3), Validators.required]),
+    codigo: new FormControl('',[Validators.maxLength(10), Validators.required]),
+    senha: new FormControl('',[Validators.minLength(4),Validators.required]),
+    confirmar: new FormControl('',[Validators.minLength(4),Validators.required],)
   })
 
   cadastrar(){
