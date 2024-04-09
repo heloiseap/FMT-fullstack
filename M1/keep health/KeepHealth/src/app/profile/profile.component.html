@@ -1,1 +1,29 @@
-<p>profile works!</p>
+<div class='dados-perfil'>
+    <!-- <label for="nome">Nome:</label>
+    <input id='nome' type="text" disabled>
+
+    <label for="email">Email:</label>
+    <input id="email" type="email" disabled>
+
+    <label for="peso">Peso:</label>
+    <input id="peso" type="number" disabled>
+
+    <label for="altura">Altura:</label>
+    <input id="altura" type="number" disabled>
+
+    <label for="codigo">Codigo:</label>
+    <input id="codigo" type="text" disabled>
+
+    <label for="idade">Idade:</label>
+    <input type="number" id="idade"> -->
+
+    <span>Nome: {{this.perfil.nome}}</span>
+    <span>Email: {{this.perfil.email}}</span>
+    <span>Peso: {{this.perfil.peso}}kg</span>
+    <span>Altura: {{ this.perfil.altura| alturaEmMetros }}m</span>
+    <span>Código do usuario:{{this.perfil.codigo}}</span>
+    <span>Idade:{{this.perfil.idade}}</span>
+    <label for="localizacao">Localização:</label>
+    <input type="number" id="localizacao">
+    <button id="pesquisar-cep">Pesquisar CEP</button>
+</div>
