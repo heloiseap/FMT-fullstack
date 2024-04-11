@@ -1,1 +1,4 @@
-<p>diet works!</p>
+<div *ngIf="listaAlimentos"></div>
+<div *ngFor="let alimento of listaAlimentos">
+  <p>{{alimento.name}}</p>
+</div>

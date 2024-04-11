@@ -5,7 +5,7 @@ import { AlturaEmMetrosPipe } from '../pipes/altura-em-metros.pipe';
   selector: 'app-profile',
   standalone: true,
   imports: [AlturaEmMetrosPipe],
-  templateUrl: './profile.component.html', //fix @tsconfig.json: "noPropertyAccessFromIndexSignature": false
+  templateUrl: './profile.component.html',
   styleUrl: './profile.component.css'
 })
 export class ProfileComponent implements OnInit {

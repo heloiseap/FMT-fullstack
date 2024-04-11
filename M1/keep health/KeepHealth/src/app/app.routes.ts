@@ -5,7 +5,8 @@ import { CadastroComponent } from './cadastro/cadastro.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { DietComponent } from './diet/diet.component';
 import { ProfileComponent } from './profile/profile.component';
-import { DietDetailComponent } from './diet-detail/diet-detail.component';
+import { DietDetailComponent } from './diet/diet-detail/diet-detail.component';
+import { Component } from '@angular/core';
 
 export const routes: Routes = [
     {
@@ -26,7 +27,10 @@ export const routes: Routes = [
     },
     {
         path: 'dietas',
-        component: DietComponent
+        children: [
+            {path: '', component: DietComponent},
+            {path: ':id', component: DietDetailComponent}
+        ]
     },
     {
         path: 'perfil',
