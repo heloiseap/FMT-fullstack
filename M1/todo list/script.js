@@ -1,8 +1,13 @@
 // import tarefas from "./tarefas.json" assert {type: 'json'}
 // let listaTarefas = tarefas.tarefas
 let listaTarefas = JSON.parse(localStorage.getItem("listaTarefas"));
-window.onload = mostrarListaTarefas;
+if (listaTarefas == null || listaTarefas == undefined) {
+  listaTarefas = [];
+}
 
+if (!!listaTarefas) {
+  window.onload = mostrarListaTarefas;
+}
 function mostrarListaTarefas() {
   let divToDoList = document.querySelector("#todo-list");
   divToDoList.innerHTML = "";
@@ -60,12 +65,10 @@ function checkTarefa(idTarefa) {
     tarefa.concluido = true;
     lblTarefa.style.textDecoration = "line-through";
     localStorage.setItem("listaTarefas", JSON.stringify(listaTarefas));
-    
-    } else {
+  } else {
     tarefa.concluido = false;
     lblTarefa.style.textDecoration = "none";
     localStorage.setItem("listaTarefas", JSON.stringify(listaTarefas));
-
   }
 }
 
@@ -83,9 +86,10 @@ function adicionarTarefa(novaTarefa) {
       titulo: novaTarefa,
       concluido: false,
     };
-
-    if (listaTarefas.filter((item) => item.titulo == novaTarefa).length == 0) {
-      // listaTarefas.push(tarefa)
+    if (
+      listaTarefas == [] ||
+      listaTarefas.filter((item) => item.titulo == novaTarefa).length == 0
+    ) {
       listaTarefas.push(tarefa);
       localStorage.setItem("listaTarefas", JSON.stringify(listaTarefas));
       //limpa a tela e mostra lista atualizada:
@@ -93,7 +97,7 @@ function adicionarTarefa(novaTarefa) {
       inputTarefa.value = "";
       mostrarListaTarefas();
     } else {
-      alert("Tarefa já adicionada"); //fazer balaozinho
+      alert("Tarefa já adicionada");
     }
   } else {
     alert("Campo vazio");
@@ -104,19 +108,6 @@ let btnAddTarefa = document.querySelector("#btn-add");
 btnAddTarefa.addEventListener("click", function () {
   let novaTarefa = document.querySelector("#add-item").value;
   adicionarTarefa(novaTarefa);
-  // if (!!novaTarefa) {
-  //     if (!listaTarefas.includes(novaTarefa)) {
-  //         listaTarefas.push([novaTarefa, false])
-  //         let inputTarefa = document.querySelector("#add-item")
-  //         inputTarefa.value = ""
-  //         mostrarListaTarefas()
-
-  //     } else {
-  //         alert("Tarefa já adicionada") //fazer balaozinho
-  //     }
-  // } else {
-  //     alert("Campo vazio")
-  // }
 });
 
 //numero de tarefas
